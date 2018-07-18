@@ -1,0 +1,9 @@
+src
+node_modules
+.gitignore
+.prettierignore
+.prettierrc.json
+.travis.yml
+jest.config.js
+tsconfig.json
+tslint.json

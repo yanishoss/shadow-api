@@ -1,0 +1,59 @@
+{
+  "name": "shadow-api",
+  "version": "1.0.0-alpha",
+  "description": "A package to control the OCapture API",
+  "main": "build/index.js",
+  "lint-staged": {
+    "**/*.ts": [
+      "prettier",
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "docs": "docsify serve ./docs",
+    "format": "npm run lint && npm run prettify",
+    "lint": "tslint --fix src/**/*.ts",
+    "prettify": "prettier src/**/*.ts",
+    "test": "jest --passWithNoTests",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanishoss/shadow-api.git"
+  },
+  "keywords": [
+    "shadow",
+    "pc",
+    "ocapture",
+    "blade"
+  ],
+  "author": "Yanis HEDJEM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yanishoss/shadow-api/issues"
+  },
+  "homepage": "https://github.com/yanishoss/shadow-api#readme",
+  "devDependencies": {
+    "@types/jest": "23.3.0",
+    "@types/node": "10.5.2",
+    "@types/raven": "2.5.1",
+    "docsify": "4.7.0",
+    "husky": "0.14.3",
+    "jest": "23.4.1",
+    "lint-staged": "7.2.0",
+    "prettier": "1.13.7",
+    "raven": "2.6.3",
+    "ts-jest": "23.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-airbnb": "5.9.2",
+    "tslint-config-prettier": "1.13.0",
+    "typescript": "2.9.2"
+  }
+}
