@@ -31,7 +31,7 @@
     "emitDecoratorMetadata": true         
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
   ],
   "exclude": [
     "build/**/*"

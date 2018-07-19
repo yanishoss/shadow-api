@@ -20,7 +20,7 @@
     "docs": "docsify serve ./docs",
     "format": "npm run lint && npm run prettify",
     "lint": "tslint --fix src/**/*.ts",
-    "prettify": "prettier src/**/*.ts",
+    "prettify": "prettier src/**/*.ts --write",
     "test": "jest --passWithNoTests",
     "prepublish": "npm run build"
   },
@@ -41,9 +41,11 @@
   },
   "homepage": "https://github.com/yanishoss/shadow-api#readme",
   "devDependencies": {
+    "@types/bluebird": "3.5.22",
     "@types/jest": "23.3.0",
     "@types/node": "10.5.2",
     "@types/raven": "2.5.1",
+    "@types/workerpool": "2.3.0",
     "docsify": "4.7.0",
     "husky": "^0.14.3",
     "jest": "23.4.1",
@@ -55,5 +57,9 @@
     "tslint-config-airbnb": "5.9.2",
     "tslint-config-prettier": "1.13.0",
     "typescript": "2.9.2"
+  },
+  "dependencies": {
+    "promise-socket": "3.1.1",
+    "workerpool": "2.3.0"
   }
 }

@@ -39,6 +39,10 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@types/bluebird@3.5.22":
+  version "3.5.22"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.22.tgz#519b87fe3c9d290ca6c06381ffc3040770ab452b"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -56,6 +60,12 @@
   resolved "https://registry.yarnpkg.com/@types/raven/-/raven-2.5.1.tgz#62ef0a59e29691945e1f295b62ed199619cbd9b6"
   dependencies:
     "@types/events" "*"
+    "@types/node" "*"
+
+"@types/workerpool@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@types/workerpool/-/workerpool-2.3.0.tgz#2a011a742e415d98d4a9fc8d9adcff23166f8485"
+  dependencies:
     "@types/node" "*"
 
 abab@^1.0.4:
@@ -2707,7 +2717,7 @@ oauth-sign@~0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -3017,6 +3027,27 @@ private@^0.1.8:
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
+
+promise-duplex@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/promise-duplex/-/promise-duplex-3.0.3.tgz#e2ae4e17dec005e3c82b96c3373049020bd627ea"
+  dependencies:
+    promise-readable "^3.1.5"
+    promise-writable "^3.1.2"
+
+promise-readable@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/promise-readable/-/promise-readable-3.1.5.tgz#cbf2ae3de7336e3f7fbf24a63e21f5e79d173175"
+
+promise-socket@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/promise-socket/-/promise-socket-3.1.1.tgz#12797b0152acce35a0a5a963c1fa24be41af3f8e"
+  dependencies:
+    promise-duplex "^3.0.3"
+
+promise-writable@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/promise-writable/-/promise-writable-3.1.2.tgz#1375cd75a3112c376c5cc22b79e777a86a57c454"
 
 prompts@^0.1.9:
   version "0.1.12"
@@ -3986,6 +4017,12 @@ wordwrap@~0.0.2:
 wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+
+workerpool@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-2.3.0.tgz#86c5cbe946b55e7dc9d12b1936c8801a6e2d744d"
+  dependencies:
+    object-assign "4.1.1"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
