@@ -1,6 +1,6 @@
 {
   "name": "shadow-api",
-  "version": "1.0.0-alpha",
+  "version": "1.0.1-alpha",
   "description": "A package to control the OCapture API",
   "main": "build/index.js",
   "lint-staged": {
