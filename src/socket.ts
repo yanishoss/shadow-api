@@ -1,5 +1,5 @@
 import * as net from "net";
-import { SOCKET_STOPPED_WORKING } from ".\\errors";
+import { SOCKET_STOPPED_WORKING } from "./errors";
 
 export function createSocket(): net.Socket {
   const socket: net.Socket = net.createConnection(7040);
