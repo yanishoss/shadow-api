@@ -1,5 +1,5 @@
 import { pool, WorkerPool } from "workerpool";
-import { parseStruct } from "./command";
+import { parseStruct } from ".\\command";
 
 enum Scope {
   MASTER="master",

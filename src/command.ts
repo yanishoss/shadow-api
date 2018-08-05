@@ -1,7 +1,7 @@
 import { Socket } from "net";
 import { PromiseSocket } from "promise-socket";
-import { CANNOT_WRITE_SOCKET, TIMEOUT_SOCKET } from "./errors";
-import { createSocket } from "./socket";
+import { CANNOT_WRITE_SOCKET, TIMEOUT_SOCKET } from ".\\errors";
+import { createSocket } from ".\\socket";
 
 function parseOutput(output: string): string {
   return output

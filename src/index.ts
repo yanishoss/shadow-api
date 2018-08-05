@@ -1,3 +1,3 @@
-import "./sentry";
+import ".\\sentry";
 
-export { OCaptureClient } from "./client";
+export { OCaptureClient } from ".\\client";

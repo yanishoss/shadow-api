@@ -1,5 +1,5 @@
 import { worker } from "workerpool";
-import { exec } from "./command";
+import { exec } from ".\\command";
 
 worker({
   exec
