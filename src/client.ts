@@ -39,7 +39,7 @@ interface IStatusSlave {
 function outputToStatus(output: {[key: string]: string}): {[key: string]: any} {
   const status: {[key: string]: any} = {};
 
-  Object.keys(status).forEach((key) => {
+  Object.keys(output).forEach((key) => {
         switch (key) {
           case "version": 
             status.version = output[key];
@@ -48,7 +48,7 @@ function outputToStatus(output: {[key: string]: string}): {[key: string]: any} {
             status.serial = parseInt(output[key], 10);
             break;
           case "logging enabled":
-            status.isLoggingEnabled = Boolean(output[key]);
+            status.isLoggingEnabled = output[key] === "true";
             break;
           case "packet usleep":
             status.packetUsleep = parseInt(output[key], 10);
@@ -66,7 +66,7 @@ function outputToStatus(output: {[key: string]: string}): {[key: string]: any} {
             status.encoderType = output[key];
             break;
           case "content protection":
-            status.isContentProtectionEnabled = output[key] === "on" ? true : false;
+            status.isContentProtectionEnabled = output[key] === "on";
             break;
           case "frame width":
             status.frameWidth = parseInt(output[key], 10);

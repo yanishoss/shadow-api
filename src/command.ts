@@ -12,11 +12,10 @@ function parseOutput(output: string): string {
 export function parseStruct<T extends {[key: string]: string}>(output: string): T | null {
   const keyRegex: RegExp = /^(.+(?=\s*:))(?<!\s+)/gmi;
   const valueRegex: RegExp = /((?<=:\s*)\S+)$/gmi;
-
-  const keys: string[] | null = keyRegex.exec(output);
-  const values: string[] | null = valueRegex.exec(output);
-
   const struct: {[key: string]: string} = {};
+
+  const keys = output.match(keyRegex);
+  const values = output.match(valueRegex);
 
   if (!keys) {
     return null;
