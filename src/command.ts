@@ -3,15 +3,35 @@ import { PromiseSocket } from "promise-socket";
 import { CANNOT_WRITE_SOCKET, TIMEOUT_SOCKET } from "./errors";
 import { createSocket } from "./socket";
 
-function parse(output: string): string {
+function parseOutput(output: string): string {
   return output
     .split(/o-capture>[.\s]*/)
     .filter(el => el !== "o-capture>" && el !== "")[0];
 }
 
+export function parseStruct<T extends {[key: string]: string}>(output: string): T | null {
+  const keyRegex: RegExp = /^(.+(?=\s*:))(?<!\s+)/gmi;
+  const valueRegex: RegExp = /((?<=:\s*)\S+)$/gmi;
+
+  const keys: string[] | null = keyRegex.exec(output);
+  const values: string[] | null = valueRegex.exec(output);
+
+  const struct: {[key: string]: string} = {};
+
+  if (!keys) {
+    return null;
+  }
+
+  keys.forEach((key, i) => {
+    struct[key] = values ? values[i] : "";
+  });
+
+  return struct as T;
+}
+
 // Store the temporary buffers of the requests.
-// The IDs are timestamp.
-const buffers: { [id: string]: string } = {};
+// The IDs are timestamp messed up with random numbers.
+const buffers: { [id: number]: string } = {};
 
 export function exec(command: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -29,7 +49,7 @@ export function exec(command: string): Promise<string> {
     promiseSocket.stream.setNoDelay(true);
 
     // The identifier of the request inside the buffer.
-    const bufferId: string = new Date(Date.now()).toUTCString();
+    const bufferId: number = Date.now() * Math.random();
 
     // Reject the promise after 3 seconds of idle state.
     promiseSocket.stream.on("timeout", () => reject(new Error(TIMEOUT_SOCKET)));
@@ -49,7 +69,7 @@ export function exec(command: string): Promise<string> {
         bufferLines[0].match(/(?=(o-capture)+).*/) &&
         bufferLines[bufferLines.length - 1].match(/(?=(o-capture>)+).*/)
       ) {
-        resolve(parse(buffers[bufferId]));
+        resolve(parseOutput(buffers[bufferId]));
 
         // Free some memory.
         // It's optimization bro !
